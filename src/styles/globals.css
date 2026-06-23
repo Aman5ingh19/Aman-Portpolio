@@ -1,0 +1,417 @@
+/* ═══════════════════════════════════════════════════════════
+   AMAN SINGH — PORTFOLIO DESIGN SYSTEM
+   Dark, minimal, editorial, high-contrast aesthetic
+   Inspired by moncy.dev
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+  /* Core Palette */
+  --color-bg:          #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-bg-subtle:   #161616;
+  --color-bg-card:     #0f0f0f;
+
+  /* Text */
+  --color-text:        #f0f0f0;
+  --color-text-muted:  #888888;
+  --color-text-dim:    #555555;
+
+  /* Accent — electric lime */
+  --color-accent:      #c8ff00;
+  --color-accent-dim:  rgba(200, 255, 0, 0.15);
+  --color-accent-glow: rgba(200, 255, 0, 0.4);
+
+  /* Borders */
+  --color-border:      #1e1e1e;
+  --color-border-hover:#2e2e2e;
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Type Scale (clamp for fluid typography) */
+  --text-xs:   clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
+  --text-sm:   clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  --text-lg:   clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-xl:   clamp(1.15rem, 1rem + 0.75vw, 1.35rem);
+  --text-2xl:  clamp(1.4rem, 1.1rem + 1.5vw, 1.75rem);
+  --text-3xl:  clamp(1.8rem, 1.4rem + 2vw, 2.5rem);
+  --text-4xl:  clamp(2.2rem, 1.5rem + 3.5vw, 3.5rem);
+  --text-5xl:  clamp(2.8rem, 1.8rem + 5vw, 5rem);
+  --text-hero: clamp(3.5rem, 2rem + 8vw, 9rem);
+
+  /* Spacing Scale */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --max-width:       1400px;
+  --content-width:   calc(100% - 48px);
+  --navbar-height:   72px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.8s;
+
+  /* Z-index layers */
+  --z-base:      1;
+  --z-dropdown:  100;
+  --z-navbar:    500;
+  --z-cursor:    900;
+  --z-preloader: 9999;
+
+  /* Viewport height (updated by JS for mobile) */
+  --vh: 100vh;
+  --vh: 100svh;
+
+  /* Cursor size */
+  --cursor-size: 16px;
+}
+
+/* ── CSS Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  /* Lenis needs overflow hidden initially, then controls it */
+}
+
+/* Smooth out scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-hover);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-dim);
+}
+
+/* ── Typography Base ───────────────────────────────────────── */
+main {
+  padding-top: var(--navbar-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--text-hero); }
+h2 { font-size: var(--text-5xl); }
+h3 { font-size: var(--text-4xl); }
+h4 { font-size: var(--text-3xl); }
+h5 { font-size: var(--text-2xl); }
+h6 { font-size: var(--text-xl); }
+
+p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 65ch;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration-fast) var(--ease-out-quart);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+/* ── Focus Styles ──────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ── Utility Classes ───────────────────────────────────────── */
+
+/* Skip link for accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: calc(var(--z-preloader) + 1);
+  padding: var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+.skip-to-main:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+/* Section container — editorial wide layout */
+.section-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: 5rem;
+}
+
+/* Section vertical spacing */
+.section {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+  position: relative;
+}
+
+/* Section label — small uppercase accent text (e.g. "01 / ABOUT") */
+.section-label {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+
+/* Section title */
+.section-title {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+  text-transform: uppercase;
+}
+
+/* Divider line */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+}
+
+/* ── Button System ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--color-accent-glow);
+  color: var(--color-bg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-hover);
+}
+.btn-outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 0 20px var(--color-accent-dim);
+}
+
+/* ── GSAP SplitText helper ─────────────────────────────────── */
+.split-line {
+  overflow: hidden;
+}
+
+/* Text that will be split — optimize rendering */
+.title,
+.para {
+  font-kerning: none;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+  transform: translateZ(0);
+}
+
+/* ── Noise Overlay (subtle grain texture) ──────────────────── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: var(--z-base);
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Reduced Motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Responsive Breakpoints ────────────────────────────────── */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  :root {
+    --navbar-height: 64px;
+  }
+
+  .section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  :root {
+    --navbar-height: 56px;
+  }
+
+  .section-container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .section {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  .section-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+  .section-container {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+}

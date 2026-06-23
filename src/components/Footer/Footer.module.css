@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════
+   FOOTER
+   Minimal copyright + name
+   ═══════════════════════════════════════ */
+
+.footer {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLeft {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+}
+
+.footerName {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.footerRight {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footerAccent {
+  color: var(--color-accent);
+}
+
+/* Back to top button */
+.backToTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: color var(--duration-fast) ease;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.backToTop:hover {
+  color: var(--color-accent);
+}
+
+.backToTopArrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.backToTop:hover .backToTopArrow {
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+  .footerInner {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}

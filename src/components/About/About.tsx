@@ -1,0 +1,117 @@
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styles from './About.module.css';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const SKILLS = [
+  { name: 'C++', iconKey: 'cpp' },
+  { name: 'Python', iconKey: 'py' },
+  { name: 'JavaScript', iconKey: 'js' },
+  { name: 'React.js', iconKey: 'react' },
+  { name: 'Next.js', iconKey: 'nextjs' },
+  { name: 'Tailwind CSS', iconKey: 'tailwind' },
+  { name: 'Node.js', iconKey: 'nodejs' },
+  { name: 'Express.js', iconKey: 'express' },
+  { name: 'Django', iconKey: 'django' },
+  { name: 'MongoDB', iconKey: 'mongodb' },
+  { name: 'MySQL', iconKey: 'mysql' },
+  { name: 'PostgreSQL', iconKey: 'postgresql' },
+  { name: 'Git', iconKey: 'git' },
+  { name: 'GitHub', iconKey: 'github' },
+  { name: 'VS Code', iconKey: 'vscode' },
+];
+
+const STATS = [
+  { number: '7.0', label: 'CGPA' },
+  { number: '2023-27', label: 'B.Tech CSE' },
+  { number: '2', label: 'Internships' },
+];
+
+const About: React.FC = () => {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const trigger = containerRef.current;
+
+    gsap.from('.section-label', {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      x: -30, duration: 0.8, ease: 'power3.out',
+    });
+
+    gsap.from(`.${styles.bioText}`, {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      y: 40, duration: 1, ease: 'power3.out',
+    });
+
+    gsap.from(`.${styles.bioDescription}`, {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      y: 30, duration: 0.8, delay: 0.2, ease: 'power3.out',
+    });
+
+    gsap.from(`.${styles.skillItem}`, {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      y: 20, duration: 0.6, stagger: 0.05, ease: 'power3.out',
+    });
+
+    gsap.from(`.${styles.stat}`, {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      y: 20, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+    });
+  }, { scope: containerRef });
+
+  return (
+    <section ref={containerRef} className={`${styles.about} section`} id="about">
+      <div className="section-container">
+        <div className="section-label">01 / Profile</div>
+
+        <div className={styles.aboutInner}>
+          <div className={styles.bioColumn}>
+            <div className={styles.bioText}>
+              I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Computer Science Engineering Student 
+              at <span className={styles.bioHighlight}>K.R. Mangalam University</span>.
+            </div>
+
+            <p className={styles.bioDescription}>
+              Computer Science Engineering student with a strong foundation in full stack development and DSA. 
+              Skilled in building scalable web applications using MERN Stack and Python. Familiar with 
+              machine learning concepts with hands-on experience through a research-based project. 
+              Passionate about problem solving and developing real-world solutions.
+            </p>
+
+            <div className={styles.statsRow}>
+              {STATS.map((stat) => (
+                <div key={stat.label} className={styles.stat}>
+                  <span className={styles.statNumber}>{stat.number}</span>
+                  <span className={styles.statLabel}>{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.skillsColumn}>
+            <div className={styles.skillsTitle}>Technical Skills</div>
+            <div className={styles.skillsGrid}>
+              {SKILLS.map((skill) => (
+                <div key={skill.name} className={styles.skillItem}>
+                  <img 
+                    src={`https://skillicons.dev/icons?i=${skill.iconKey}`}
+                    alt={skill.name}
+                    className={styles.skillIcon}
+                    width="32"
+                    height="32"
+                  />
+                  <span className={styles.skillName}>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
