@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
 
         <div style={{ marginTop: '2.5rem' }}>
           <a 
-            href="/Aman_Singh_Resume.pdf" 
+            href="/Aman_Singh_Resume (1).pdf" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-primary"
