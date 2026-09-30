@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
           Software Developer & Software Tester Based in Gurugram
           <br />
           <span className={styles.heroTagline}>
-            Building Scalable Web Applications, Intelligent Systems & Quality Assurance
+            Building Scalable Web Applications & Intelligent Systems
           </span>
         </p>
 

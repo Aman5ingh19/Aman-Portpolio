@@ -110,7 +110,7 @@ const About: React.FC = () => {
 
               <p className={styles.bioDescription}>
                 Computer Science Engineering student specializing in software development, full stack engineering, 
-                and software testing/quality assurance. Experienced in building scalable web architectures using 
+                and software testing. Experienced in building scalable web architectures using 
                 React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
                 containerized deployments (Docker, Kubernetes). Passionate about testing, automation, AI integrations 
                 (RAG, vector search), and solving complex real-world engineering problems with robust DSA fundamentals.
