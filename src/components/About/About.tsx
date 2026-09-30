@@ -10,24 +10,34 @@ const SKILLS = [
   { name: 'C++', iconKey: 'cpp' },
   { name: 'Python', iconKey: 'py' },
   { name: 'JavaScript', iconKey: 'js' },
+  { name: 'TypeScript', iconKey: 'ts' },
   { name: 'React.js', iconKey: 'react' },
   { name: 'Next.js', iconKey: 'nextjs' },
   { name: 'Tailwind CSS', iconKey: 'tailwind' },
   { name: 'Node.js', iconKey: 'nodejs' },
   { name: 'Express.js', iconKey: 'express' },
   { name: 'Django', iconKey: 'django' },
+  { name: 'FastAPI', iconKey: 'fastapi' },
+  { name: 'PostgreSQL', iconKey: 'postgres' },
   { name: 'MongoDB', iconKey: 'mongodb' },
-  { name: 'MySQL', iconKey: 'mysql' },
-  { name: 'PostgreSQL', iconKey: 'postgresql' },
+  { name: 'Supabase', iconKey: 'supabase' },
+  { name: 'Redis', iconKey: 'redis' },
+  { name: 'Firebase', iconKey: 'firebase' },
+  { name: 'Docker', iconKey: 'docker' },
+  { name: 'Kubernetes', iconKey: 'kubernetes' },
+  { name: 'Apache Kafka', iconKey: 'kafka' },
+  { name: 'RabbitMQ', iconKey: 'rabbitmq' },
+  { name: 'Prisma', iconKey: 'prisma' },
   { name: 'Git', iconKey: 'git' },
   { name: 'GitHub', iconKey: 'github' },
+  { name: 'Postman', iconKey: 'postman' },
   { name: 'VS Code', iconKey: 'vscode' },
 ];
 
 const STATS = [
   { number: '7.0', label: 'CGPA' },
   { number: '2023-27', label: 'B.Tech CSE' },
-  { number: '2', label: 'Internships' },
+  { number: '1', label: 'Internship' },
 ];
 
 const About: React.FC = () => {

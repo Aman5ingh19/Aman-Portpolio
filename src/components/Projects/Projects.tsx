@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FiGithub } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import styles from './Projects.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,26 +10,29 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     number: '01',
-    title: 'HRMS Lite — Full Stack HR Management System',
-    description: 'Designed REST APIs integrated with React frontend. Optimized DB operations using MongoDB Atlas.',
-    tech: ['React', 'Django', 'MongoDB'],
-    github: 'https://github.com/Aman5ingh19/HRMS-LITE',
+    title: 'FixIt | Distributed Service Booking & Repair Platform',
+    description: 'Built a full-stack platform connecting customers with technicians for service bookings, job tracking, and real-time communication using Socket.IO. Implemented OAuth 2.0/OIDC authentication, Redis caching, and asynchronous processing with RabbitMQ (DLQ, retries) and Kafka event streaming. Integrated Razorpay Test Mode, Docker, Kubernetes with HPA, and GitHub Actions CI/CD.',
+    tech: ['React', 'Node.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'Socket.IO', 'RabbitMQ', 'Kafka', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/Aman5ingh19/FixIt',
+    demo: 'https://fix-it-nu-sable.vercel.app/',
     image: '',
   },
   {
     number: '02',
-    title: 'Phishing Email Detection (Research Paper - IJMSRT)',
-    description: 'NLP-based text preprocessing + feature extraction. Trained SVM, Random Forest, AdaBoost models. Evaluated using accuracy and AUC-ROC metrics.',
-    tech: ['Python', 'ML', 'NLP', 'Scikit-learn'],
-    github: 'https://github.com/Aman5ingh19/Phishing-Detection-in-Email-using-deep-learning',
+    title: 'MailGenius | AI-Powered Email Assistant & Intelligence Platform',
+    description: 'Developed an AI email assistant for professional reply generation, draft improvement, grammar correction, and tone analysis. Engineered multi-provider AI fallback using Gemini, Groq, and OpenRouter, with RAG-based semantic retrieval using Supabase pgvector. Integrated NextAuth.js, Redis rate limiting, Firebase push notifications, and Docker.',
+    tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'pgvector', 'Gemini', 'Redis', 'Firebase', 'Docker'],
+    github: 'https://github.com/Aman5ingh19/MailGenius',
+    demo: 'https://mail-genius-ai-email-assistant.vercel.app',
     image: '',
   },
   {
     number: '03',
-    title: 'Health Tracker — MERN Stack',
-    description: 'Secure user authentication + health monitoring. Disease prediction via backend API integration.',
-    tech: ['MongoDB', 'Express', 'React', 'Node.js'],
-    github: 'https://github.com/Aman5ingh19/docodev-health-tracker',
+    title: 'HRMS Lite | Cloud-Native Distributed Human Resource Management System',
+    description: 'Developed an HR management platform for employee records, attendance tracking, and check-in/check-out workflows with Clerk authentication. Implemented event-driven processing using Kafka and RabbitMQ, with Redis caching and n8n workflow automation. Containerized services using Docker and configured Kubernetes deployments with HPA and GitHub Actions CI/CD.',
+    tech: ['React', 'TypeScript', 'Django', 'MongoDB Atlas', 'Redis', 'RabbitMQ', 'Kafka', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/Aman5ingh19/HRMS-LITE',
+    demo: 'https://hrms-lite-ten-phi.vercel.app',
     image: '',
   },
 ];
@@ -104,8 +107,13 @@ const Projects: React.FC = () => {
 
                 <div className={styles.cardLinks}>
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.cardLink} data-cursor-hover>
-                    <FiGithub className={styles.cardLinkIcon} /> Source
+                    <FiGithub className={styles.cardLinkIcon} /> GitHub
                   </a>
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.cardLink} data-cursor-hover>
+                      <FiExternalLink className={styles.cardLinkIcon} /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

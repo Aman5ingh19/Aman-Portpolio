@@ -8,31 +8,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EXPERIENCE = [
   {
-    date: 'June 2025 – Aug 2025',
-    title: 'Web Developer Intern',
-    company: 'Unified Mentor',
-    desc: 'Developed responsive web interfaces. Optimized UI components and layouts.',
-  },
-  {
-    date: 'June 2025 – July 2025',
+    date: 'Jun 2025 – Jul 2025',
     title: 'Full Stack Developer Intern',
-    company: 'IBM Partnership Program',
-    desc: 'Built full stack apps using MERN technologies. Developed REST APIs and backend integration.',
+    company: 'IBM (Partnership Program)',
+    desc: 'Developed full-stack web applications using MERN technologies. Built and integrated REST APIs to connect frontend interfaces with backend services. Processed structured data and implemented backend functionality for application workflows.',
   },
 ];
 
 const CERTS = [
   {
-    title: 'Research Publication — IJMSRT',
-    issuer: 'Phishing Detection in Email using Deep Learning',
-    tags: 'Python, ML, NLP',
-    link: '/research-paper-certificate.jpg'
+    title: 'Full Stack with AI Integration Bootcamp',
+    issuer: 'Programming Pathshala — Jul 2026',
+    tags: 'MERN, Supabase, Docker, Kafka, DSA, AI',
+    link: '/bootcamp Certificate.jpeg'
   },
   {
-    title: 'DBMS & SQL',
-    issuer: 'Advanced Database Concepts — Infosys Springboard',
+    title: 'Database and SQL',
+    issuer: 'Infosys Springboard — Apr 2025',
     tags: 'SQL, DBMS',
     link: '/dbms-certificate.pdf'
+  },
+  {
+    title: 'NoSQL and DBaaS 101',
+    issuer: 'IBM / Cognitive Class — Jul 2025',
+    tags: 'NoSQL, MongoDB, DBaaS',
+    link: '/NoSQL and DBaaS.pdf'
   },
   {
     title: 'Full Stack Internship',
@@ -55,8 +55,14 @@ const CERTS = [
   {
     title: 'Google Analytics',
     issuer: 'Google Certification',
-    tags: 'Python, MS Excel',
+    tags: 'Analytics, Data',
     link: '/google-analytics-certificate.pdf'
+  },
+  {
+    title: 'Research Publication — IJMSRT 2025',
+    issuer: 'Phishing Detection in Email using Deep Learning',
+    tags: 'Python, ML, NLP, SVM, Random Forest',
+    link: '/research-paper-certificate.jpg'
   },
 ];
 
@@ -112,9 +118,9 @@ const Experience: React.FC = () => {
                     <span className={styles.certIssuer}>{cert.issuer}</span>
                     <span className={styles.certTags}>{cert.tags}</span>
                   </div>
-                  <a 
-                    href={cert.link} 
-                    target="_blank" 
+                  <a
+                    href={cert.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className={styles.certView}
                   >
