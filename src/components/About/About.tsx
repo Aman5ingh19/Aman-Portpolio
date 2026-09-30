@@ -104,8 +104,8 @@ const About: React.FC = () => {
 
             <div className={styles.bioColumn}>
               <div className={styles.bioText}>
-                I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Software Developer & Software Tester 
-                at <span className={styles.bioHighlight}>K.R. Mangalam University</span>.
+                Hi, I'm <span className={styles.bioHighlight}>Aman Singh</span>, a final-year CSE student at{' '}
+                <span className={styles.bioHighlight}>K.R. Mangalam University</span> who builds full-stack apps and cares about quality.
               </div>
 
               <p className={styles.bioDescription}>
