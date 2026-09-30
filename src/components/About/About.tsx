@@ -85,10 +85,11 @@ const About: React.FC = () => {
             </div>
 
             <p className={styles.bioDescription}>
-              Computer Science Engineering student with a strong foundation in full stack development and DSA. 
-              Skilled in building scalable web applications using MERN Stack and Python. Familiar with 
-              machine learning concepts with hands-on experience through a research-based project. 
-              Passionate about problem solving and developing real-world solutions.
+              Computer Science Engineering student specializing in full stack development, distributed systems, 
+              and cloud-native applications. Experienced in building scalable web architectures using TypeScript, 
+              React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
+              containerized deployments (Docker, Kubernetes). Passionate about AI integrations (RAG, vector search) 
+              and solving complex real-world engineering problems with robust DSA fundamentals.
             </p>
 
             <div className={styles.statsRow}>
