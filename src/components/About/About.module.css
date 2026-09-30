@@ -10,17 +10,110 @@
 }
 
 .aboutInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-16);
-  align-items: start;
+}
+
+.aboutHeader {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+/* Photo Card */
+.photoColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.profilePhotoCard {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--color-accent-dim);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.profilePhotoCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px var(--color-accent-glow);
+}
+
+.profilePhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.profilePhotoCard:hover .profilePhoto {
+  transform: scale(1.04);
+}
+
+.profilePhotoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.92), transparent);
+  pointer-events: none;
+}
+
+.profileBadge {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.85rem;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-accent);
+  display: inline-block;
+  margin-right: 0.45rem;
+}
+
+.profileBadgeText {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.profileLocation {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
 }
 
 /* Left: bio */
 .bioColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .bioText {
@@ -50,6 +143,14 @@
   gap: var(--space-6);
 }
 
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
 .skillsTitle {
   font-family: var(--font-display);
   font-size: var(--text-xs);
@@ -63,7 +164,7 @@
 
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   align-items: stretch;
   grid-auto-rows: 4rem;
@@ -115,8 +216,8 @@
 .statsRow {
   display: flex;
   gap: var(--space-12);
-  margin-top: var(--space-8);
-  padding-top: var(--space-8);
+  margin-top: var(--space-4);
+  padding-top: var(--space-6);
   border-top: 1px solid var(--color-border);
 }
 
@@ -143,10 +244,22 @@
 
 /* ── Responsive ──────────────────────── */
 
+@media screen and (max-width: 1200px) {
+  .skillsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media screen and (max-width: 1024px) {
-  .aboutInner {
+  .aboutHeader {
     grid-template-columns: 1fr;
-    gap: var(--space-12);
+    gap: var(--space-8);
+  }
+
+  .profilePhotoCard {
+    max-width: 280px;
+    height: 340px;
+    margin: 0 auto;
   }
 
   .skillsGrid {
@@ -167,6 +280,7 @@
     font-size: var(--text-xl);
   }
 }
+
 
 @media screen and (max-width: 480px) {
   .skillsGrid {

@@ -51,6 +51,11 @@ const About: React.FC = () => {
       x: -30, duration: 0.8, ease: 'power3.out',
     });
 
+    gsap.from(`.${styles.profilePhotoCard}`, {
+      scrollTrigger: { trigger, start: 'top 80%' },
+      scale: 0.92, opacity: 0, duration: 1, ease: 'power3.out',
+    });
+
     gsap.from(`.${styles.bioText}`, {
       scrollTrigger: { trigger, start: 'top 80%' },
       y: 40, duration: 1, ease: 'power3.out',
@@ -63,7 +68,7 @@ const About: React.FC = () => {
 
     gsap.from(`.${styles.skillItem}`, {
       scrollTrigger: { trigger, start: 'top 80%' },
-      y: 20, duration: 0.6, stagger: 0.05, ease: 'power3.out',
+      y: 20, duration: 0.6, stagger: 0.04, ease: 'power3.out',
     });
 
     gsap.from(`.${styles.stat}`, {
@@ -78,32 +83,52 @@ const About: React.FC = () => {
         <div className="section-label">01 / Profile</div>
 
         <div className={styles.aboutInner}>
-          <div className={styles.bioColumn}>
-            <div className={styles.bioText}>
-              I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Computer Science Engineering Student 
-              at <span className={styles.bioHighlight}>K.R. Mangalam University</span>.
+          <div className={styles.aboutHeader}>
+            <div className={styles.photoColumn}>
+              <div className={styles.profilePhotoCard} data-cursor-hover>
+                <img 
+                  src="/profile.jpg" 
+                  alt="Aman Singh" 
+                  className={styles.profilePhoto}
+                />
+                <div className={styles.profilePhotoOverlay} />
+                <div className={styles.profileBadge}>
+                  <div className={styles.profileBadgeText}>
+                    <span className={styles.statusDot}></span>
+                    <span>Available for Roles</span>
+                  </div>
+                  <span className={styles.profileLocation}>Gurugram, IN</span>
+                </div>
+              </div>
             </div>
 
-            <p className={styles.bioDescription}>
-              Computer Science Engineering student specializing in full stack development, distributed systems, 
-              and cloud-native applications. Experienced in building scalable web architectures using 
-              React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
-              containerized deployments (Docker, Kubernetes). Passionate about AI integrations (RAG, vector search) 
-              and solving complex real-world engineering problems with robust DSA fundamentals.
-            </p>
+            <div className={styles.bioColumn}>
+              <div className={styles.bioText}>
+                I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Computer Science Engineering Student 
+                at <span className={styles.bioHighlight}>K.R. Mangalam University</span>.
+              </div>
 
-            <div className={styles.statsRow}>
-              {STATS.map((stat) => (
-                <div key={stat.label} className={styles.stat}>
-                  <span className={styles.statNumber}>{stat.number}</span>
-                  <span className={styles.statLabel}>{stat.label}</span>
-                </div>
-              ))}
+              <p className={styles.bioDescription}>
+                Computer Science Engineering student specializing in full stack development, distributed systems, 
+                and cloud-native applications. Experienced in building scalable web architectures using 
+                React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
+                containerized deployments (Docker, Kubernetes). Passionate about AI integrations (RAG, vector search) 
+                and solving complex real-world engineering problems with robust DSA fundamentals.
+              </p>
+
+              <div className={styles.statsRow}>
+                {STATS.map((stat) => (
+                  <div key={stat.label} className={styles.stat}>
+                    <span className={styles.statNumber}>{stat.number}</span>
+                    <span className={styles.statLabel}>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className={styles.skillsColumn}>
-            <div className={styles.skillsTitle}>Technical Skills</div>
+          <div className={styles.skillsSection}>
+            <div className={styles.skillsTitle}>Technical Skills & Technologies</div>
             <div className={styles.skillsGrid}>
               {SKILLS.map((skill) => (
                 <div key={skill.name} className={styles.skillItem}>
