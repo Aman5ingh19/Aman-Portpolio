@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FiFileText } from 'react-icons/fi';
 import styles from './Experience.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +13,7 @@ const EXPERIENCE = [
     title: 'Full Stack Developer Intern',
     company: 'IBM (Partnership Program)',
     desc: 'Developed full-stack web applications using MERN technologies. Built and integrated REST APIs to connect frontend interfaces with backend services. Processed structured data and implemented backend functionality for application workflows.',
+    certificate: '/ibm-certificate.pdf',
   },
 ];
 
@@ -33,12 +35,6 @@ const CERTS = [
     issuer: 'IBM / Cognitive Class — Jul 2025',
     tags: 'NoSQL, MongoDB, DBaaS',
     link: '/NoSQL and DBaaS.pdf'
-  },
-  {
-    title: 'Full Stack Internship',
-    issuer: 'MERN Stack Development — IBM Partnership Program',
-    tags: 'React, Node.js, MongoDB',
-    link: '/ibm-certificate.pdf'
   },
   {
     title: 'Web Dev Internship',
@@ -103,6 +99,17 @@ const Experience: React.FC = () => {
                   <h4 className={styles.timelineTitle}>{item.title}</h4>
                   <div className={styles.timelineSub}>{item.company}</div>
                   <p className={styles.timelineDesc}>{item.desc}</p>
+                  {item.certificate && (
+                    <a
+                      href={item.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.expCertBtn}
+                      data-cursor-hover
+                    >
+                      <FiFileText /> View Internship Certificate
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

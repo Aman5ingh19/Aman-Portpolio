@@ -86,7 +86,7 @@ const About: React.FC = () => {
 
             <p className={styles.bioDescription}>
               Computer Science Engineering student specializing in full stack development, distributed systems, 
-              and cloud-native applications. Experienced in building scalable web architectures using TypeScript, 
+              and cloud-native applications. Experienced in building scalable web architectures using 
               React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
               containerized deployments (Docker, Kubernetes). Passionate about AI integrations (RAG, vector search) 
               and solving complex real-world engineering problems with robust DSA fundamentals.
