@@ -19,6 +19,12 @@ const EXPERIENCE = [
 
 const CERTS = [
   {
+    title: 'Research Publication — IJMSRT 2025',
+    issuer: 'Phishing Detection in Email using Deep Learning',
+    tags: 'Python, ML, NLP, SVM, Random Forest',
+    link: '/research-paper-certificate.jpg'
+  },
+  {
     title: 'Full Stack with AI Integration Bootcamp',
     issuer: 'Programming Pathshala — Jul 2026',
     tags: 'MERN, Supabase, Docker, Kafka, DSA, AI',
@@ -53,12 +59,6 @@ const CERTS = [
     issuer: 'Google Certification',
     tags: 'Analytics, Data',
     link: '/google-analytics-certificate.pdf'
-  },
-  {
-    title: 'Research Publication — IJMSRT 2025',
-    issuer: 'Phishing Detection in Email using Deep Learning',
-    tags: 'Python, ML, NLP, SVM, Random Forest',
-    link: '/research-paper-certificate.jpg'
   },
 ];
 
