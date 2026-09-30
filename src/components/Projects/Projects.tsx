@@ -22,7 +22,7 @@ const PROJECTS = [
     title: 'MailGenius | AI-Powered Email Assistant & Intelligence Platform',
     description: 'Developed an AI email assistant for professional reply generation, draft improvement, grammar correction, and tone analysis. Engineered multi-provider AI fallback using Gemini, Groq, and OpenRouter, with RAG-based semantic retrieval using Supabase pgvector. Integrated NextAuth.js, Redis rate limiting, Firebase push notifications, and Docker.',
     tech: ['Next.js', 'React', 'Supabase', 'PostgreSQL', 'pgvector', 'Gemini', 'Redis', 'Firebase', 'Docker'],
-    github: 'https://github.com/Aman5ingh19/MailGenius',
+    github: 'https://github.com/Aman5ingh19/MailGenius---AI-Email-Assistant',
     demo: 'https://mail-genius-ai-email-assistant.vercel.app',
     image: '',
   },
