@@ -95,7 +95,7 @@ const About: React.FC = () => {
                 <div className={styles.profileBadge}>
                   <div className={styles.profileBadgeText}>
                     <span className={styles.statusDot}></span>
-                    <span>Available for Roles</span>
+                    <span>Software Dev & Tester</span>
                   </div>
                   <span className={styles.profileLocation}>Gurugram, IN</span>
                 </div>
@@ -104,16 +104,16 @@ const About: React.FC = () => {
 
             <div className={styles.bioColumn}>
               <div className={styles.bioText}>
-                I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Computer Science Engineering Student 
+                I'm <span className={styles.bioHighlight}>Aman Singh</span>, a Software Developer & Software Tester 
                 at <span className={styles.bioHighlight}>K.R. Mangalam University</span>.
               </div>
 
               <p className={styles.bioDescription}>
-                Computer Science Engineering student specializing in full stack development, distributed systems, 
-                and cloud-native applications. Experienced in building scalable web architectures using 
+                Computer Science Engineering student specializing in software development, full stack engineering, 
+                and software testing/quality assurance. Experienced in building scalable web architectures using 
                 React, Next.js, Node.js, and Django with event-driven pipelines (Kafka, RabbitMQ, Redis) and 
-                containerized deployments (Docker, Kubernetes). Passionate about AI integrations (RAG, vector search) 
-                and solving complex real-world engineering problems with robust DSA fundamentals.
+                containerized deployments (Docker, Kubernetes). Passionate about testing, automation, AI integrations 
+                (RAG, vector search), and solving complex real-world engineering problems with robust DSA fundamentals.
               </p>
 
               <div className={styles.statsRow}>

@@ -64,10 +64,10 @@ const Hero: React.FC = () => {
         </h1>
 
         <p ref={roleRef} className={styles.heroRole}>
-          Full Stack Developer Based in Gurugram
+          Software Developer & Software Tester Based in Gurugram
           <br />
           <span className={styles.heroTagline}>
-            Building Scalable Web Applications & Intelligent Systems
+            Building Scalable Web Applications, Intelligent Systems & Quality Assurance
           </span>
         </p>
 
